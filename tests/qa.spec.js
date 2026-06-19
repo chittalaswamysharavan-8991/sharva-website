@@ -2,6 +2,21 @@ import { test, expect } from "@playwright/test";
 
 const BASE_URL = "http://127.0.0.1:5173";
 
+async function expectSignedOutGate(page) {
+  const configuredPrompt = page.getByRole("heading", {
+    name: "Continue with Google to open Pablo Cockpit."
+  });
+  const unconfiguredPrompt = page.getByRole("heading", {
+    name: "Supabase is not configured yet."
+  });
+
+  await expect(configuredPrompt.or(unconfiguredPrompt)).toBeVisible();
+
+  if (await configuredPrompt.isVisible()) {
+    await expect(page.getByRole("button", { name: "Continue with Google" })).toBeVisible();
+  }
+}
+
 test.describe("Pablo Cockpit QA Suite", () => {
   // Test Public Routes
   test("Public doorway loads and shows correct copy", async ({ page }) => {
@@ -49,9 +64,8 @@ test.describe("Pablo Cockpit QA Suite", () => {
       const authCard = page.locator(".auth-gate");
       await expect(authCard).toBeVisible();
       
-      // Since Supabase config is present in the local .env, it should show Google OAuth prompt
-      await expect(page.locator("text=Continue with Google to open Pablo Cockpit.")).toBeVisible();
-      await expect(page.locator("button:has-text('Continue with Google')")).toBeVisible();
+      // Both configured and intentionally unconfigured environments must remain locked.
+      await expectSignedOutGate(page);
     });
   }
 
@@ -71,7 +85,7 @@ test.describe("Pablo Cockpit QA Suite", () => {
     await page.goto(`${BASE_URL}/home`);
     
     await expect(page.locator(".auth-gate")).toBeVisible();
-    await expect(page.locator("button:has-text('Continue with Google')")).toBeVisible();
+    await expectSignedOutGate(page);
   });
 
   // Test API Endpoints (Connector Status and Sync Gate)

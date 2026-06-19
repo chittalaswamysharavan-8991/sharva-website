@@ -1,3 +1,19 @@
+# Agent Job Report Template
+
+Use this template for implementation, audit, or QA work. Save it in:
+
+`reports/YYYY-MM-DD/<task-id>/`
+
+Use the exact filename assigned to the worker:
+
+- Codex: `CODEX_JOB_REPORT.md`
+- Antigravity: `ANTIGRAVITY_QA_REPORT.md`
+- Optional post-merge combined summary: `FINAL_JOB_REPORT.md`
+
+Pablo / ChatGPT reviews use [PABLO_REVIEW_REPORT_TEMPLATE.md](./PABLO_REVIEW_REPORT_TEMPLATE.md) and must be saved as `PABLO_REVIEW_REPORT.md`.
+
+---
+
 # Job Report: [Task ID] - [Brief Title]
 
 - **Task ID**: [e.g., task-001]

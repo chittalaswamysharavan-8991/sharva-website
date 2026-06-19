@@ -4,6 +4,10 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
+    "lint": "eslint .",
+    "test": "npm run test:e2e",
+    "test:e2e": "playwright test",
+    "check": "npm run lint && npm run build && npm run test:e2e",
     "preview": "vite preview --host 127.0.0.1",
     "dev:phone": "vite --host 0.0.0.0",
     "deploy:vercel": "vercel --prod"
@@ -17,6 +21,11 @@
     "vite": "latest"
   },
   "devDependencies": {
-    "@playwright/test": "^1.61.0"
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.61.0",
+    "eslint": "^10.5.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.3",
+    "globals": "^17.6.0"
   }
 }

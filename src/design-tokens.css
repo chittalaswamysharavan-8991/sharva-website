@@ -1,0 +1,288 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   PABLO COCKPIT — Design Tokens
+   ═══════════════════════════════════════════════════════════════════════════
+   Single source of truth for every visual property. Import once in styles.css
+   via  @import './design-tokens.css';  — then reference vars everywhere.
+
+   Palette philosophy:  "quiet luxury"
+   • Warm dark backgrounds with green-tinted HSL (hue ≈ 140)
+   • Primary accent: bright green — continuity with original brand
+   • Secondary accent: warm gold/amber — luxury warmth
+   • Tertiary accents: copper, teal, bone, clay — earthy richness
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     1. TYPOGRAPHY — Font Families
+     ─────────────────────────────────────────────────────────────────────────
+     --font-ui      → Body copy, labels, buttons, controls (Plus Jakarta Sans)
+     --font-display → Hero headings, feature titles   (Instrument Serif)
+     --font-mono    → Code snippets, data readouts                           */
+
+  --font-ui:      'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     2. TYPOGRAPHY — Font Weight Tokens
+     ─────────────────────────────────────────────────────────────────────────
+     Named weights so styles.css never uses raw numbers.                     */
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extrabold:800;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     3. TYPOGRAPHY — Modular Scale (ratio ≈ 1.25 — "Major Third")
+     ─────────────────────────────────────────────────────────────────────────
+     Fluid clamp() values keep text readable on every viewport width.
+     Fallback: the middle value is the preferred size at a ~1200px viewport.
+     Min (320px) → Preferred → Max (1440px)                                  */
+
+  --text-xs:   clamp(0.6875rem, 0.65rem + 0.125vw, 0.75rem);    /* ~11-12px */
+  --text-sm:   clamp(0.8125rem, 0.775rem + 0.125vw, 0.875rem);  /* ~13-14px */
+  --text-base: clamp(0.9375rem, 0.9rem + 0.125vw, 1rem);        /* ~15-16px */
+  --text-lg:   clamp(1.125rem, 1.05rem + 0.25vw, 1.25rem);      /* ~18-20px */
+  --text-xl:   clamp(1.375rem, 1.275rem + 0.33vw, 1.5625rem);   /* ~22-25px */
+  --text-2xl:  clamp(1.625rem, 1.5rem + 0.42vw, 1.953rem);      /* ~26-31px */
+  --text-3xl:  clamp(2rem, 1.85rem + 0.5vw, 2.441rem);          /* ~32-39px */
+  --text-4xl:  clamp(2.5rem, 2.3rem + 0.67vw, 3.052rem);        /* ~40-49px */
+  --text-5xl:  clamp(3rem, 2.7rem + 1vw, 3.815rem);             /* ~48-61px */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     4. TYPOGRAPHY — Line Height & Letter Spacing
+     ───────────────────────────────────────────────────────────────────────── */
+
+  --leading-none:    1;
+  --leading-tight:   1.2;
+  --leading-snug:    1.35;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-wider:   0.08em;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     5. SPACING — 8px base, half-step at 4px
+     ─────────────────────────────────────────────────────────────────────────
+     Designed so every margin / padding in the UI is a token,
+     never a magic number.                                                   */
+
+  --space-0:   0;
+  --space-px:  1px;
+  --space-0_5: 0.125rem;  /*  2px */
+  --space-1:   0.25rem;   /*  4px */
+  --space-1_5: 0.375rem;  /*  6px */
+  --space-2:   0.5rem;    /*  8px — base unit */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-7:   1.75rem;   /* 28px */
+  --space-8:   2rem;      /* 32px */
+  --space-9:   2.25rem;   /* 36px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-11:  3rem;      /* 48px */
+  --space-12:  6rem;      /* 96px */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     6. BORDER RADIUS
+     ───────────────────────────────────────────────────────────────────────── */
+
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     7. COLOR PALETTE — "Quiet Luxury" Dark Theme
+     ═══════════════════════════════════════════════════════════════════════════
+     All colours use HSL so shade / tint variants are trivial to derive.
+     Contrast ratios vs --ink background noted in brackets where applicable.
+
+     WCAG AA targets:
+       • Normal text ≥ 4.5:1
+       • Large text / UI components ≥ 3:1
+     ══════════════════════════════════════════════════════════════════════════ */
+
+  /* — 7a. Background / Ink layers ————————————————————————————————————————— */
+  --ink:   hsl(140, 12%, 4%);   /* deepest background — near-black           */
+  --ink-2: hsl(140, 10%, 7%);   /* card / section background                 */
+  --ink-3: hsl(140, 8%, 10%);   /* elevated surface / hover state            */
+
+  /* — 7b. Panel (glassmorphism-ready with alpha) —————————————————————————— */
+  --panel:        hsla(140, 14%, 8%, 0.85);   /* default panel                */
+  --panel-hover:  hsla(140, 14%, 12%, 0.9);   /* panel hover / active         */
+  --panel-strong: hsla(140, 10%, 6%, 0.96);   /* solid panel (modals, menus)  */
+
+  /* — 7c. Borders / Dividers —————————————————————————————————————————————— */
+  --line:        rgba(142, 234, 138, 0.18);   /* subtle divider               */
+  --line-strong: rgba(142, 234, 138, 0.32);   /* prominent divider / focus    */
+
+  /* — 7d. Primary Accent — Green ─────────────────────────────────────────── */
+  --green:       hsl(118, 72%, 72%);          /* primary action colour ≥ 9:1  */
+  --green-dim:   hsl(118, 50%, 45%);          /* muted green for backgrounds  */
+  --green-glow:  hsla(118, 72%, 72%, 0.15);   /* glow / halo behind green UI  */
+
+  /* — 7e. Secondary Accent — Gold / Amber ────────────────────────────────── */
+  --gold:        hsl(38, 65%, 55%);           /* luxury warmth accent ≥ 4.5:1 */
+  --gold-dim:    hsl(38, 45%, 38%);           /* muted gold for subtle uses   */
+  --gold-glow:   hsla(38, 65%, 55%, 0.12);    /* warm glow behind gold UI     */
+
+  /* — 7f. Tertiary Accents ───────────────────────────────────────────────── */
+  --copper: hsl(25, 52%, 48%);                /* earthy warmth                */
+  --teal:   hsl(168, 45%, 50%);               /* cool complement              */
+  --red:    hsl(5, 72%, 58%);                 /* destructive / error ≥ 4.5:1  */
+  --bone:   hsl(40, 42%, 85%);               /* warm near-white              */
+  --clay:   hsl(30, 45%, 63%);               /* warm mid-tone                */
+
+  /* — 7g. Text hierarchy ─────────────────────────────────────────────────── */
+  --text:   hsl(40, 38%, 93%);               /* primary text — cream ≥ 13:1  */
+  --text-2: hsl(130, 10%, 62%);              /* secondary — muted green      */
+  --text-3: hsl(130, 8%, 40%);               /* tertiary — faint             */
+
+  /* Semantic aliases (for code readability) */
+  --muted: var(--text-2);
+  --dim:   var(--text-3);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     8. SHADOWS & GLOWS
+     ─────────────────────────────────────────────────────────────────────────
+     Shadows are tinted dark-green to match the palette rather than
+     pure black, preventing "floating in a void" appearance.                 */
+
+  --shadow-sm:
+    0 1px 2px hsla(140, 20%, 3%, 0.45),
+    0 1px 3px hsla(140, 20%, 3%, 0.25);
+
+  --shadow-md:
+    0 4px 6px hsla(140, 20%, 3%, 0.4),
+    0 2px 4px hsla(140, 20%, 3%, 0.25);
+
+  --shadow-lg:
+    0 10px 24px hsla(140, 20%, 2%, 0.55),
+    0 4px 8px  hsla(140, 20%, 3%, 0.3);
+
+  --shadow-glow:
+    0 0 20px var(--green-glow),
+    0 0 60px hsla(118, 72%, 72%, 0.06);
+
+  --shadow-gold-glow:
+    0 0 20px var(--gold-glow),
+    0 0 60px hsla(38, 65%, 55%, 0.05);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     9. ANIMATION — Easings
+     ─────────────────────────────────────────────────────────────────────────
+     Named curves so every transition in the app feels consistent.           */
+
+  --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring:    cubic-bezier(0.22, 1.4, 0.36, 1);
+  --ease-in-out:    cubic-bezier(0.42, 0, 0.58, 1);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     10. ANIMATION — Durations
+     ───────────────────────────────────────────────────────────────────────── */
+
+  --duration-fast:    150ms;
+  --duration-normal:  250ms;
+  --duration-slow:    400ms;
+  --duration-glacial: 700ms;   /* page transitions, hero animations */
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     11. Z-INDEX SCALE
+     ─────────────────────────────────────────────────────────────────────────
+     Centralised so z-index wars never happen.                               */
+
+  --z-deep:    -1;
+  --z-base:     0;
+  --z-raised:   1;
+  --z-sticky:  100;
+  --z-dropdown:200;
+  --z-overlay: 300;
+  --z-modal:   400;
+  --z-toast:   500;
+  --z-max:     999;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     12. LAYOUT — Container & Breakpoint Tokens
+     ─────────────────────────────────────────────────────────────────────────
+     Not media queries (those live in styles.css) but max-width values
+     so components can reference consistent container sizes.                 */
+
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     13. BACKDROP / BLUR
+     ───────────────────────────────────────────────────────────────────────── */
+
+  --blur-sm:  4px;
+  --blur-md: 12px;
+  --blur-lg: 24px;
+  --blur-xl: 40px;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     14. BORDER WIDTHS
+     ───────────────────────────────────────────────────────────────────────── */
+
+  --border-thin:   1px;
+  --border-medium: 1.5px;
+  --border-thick:  2px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACCESSIBILITY — Reduced Motion
+   ═══════════════════════════════════════════════════════════════════════════
+   When the user prefers reduced motion, collapse all durations to near-zero
+   and flatten spring/bounce easings to a simple ease-out.                  */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast:    0ms;
+    --duration-normal:  0ms;
+    --duration-slow:    50ms;
+    --duration-glacial: 50ms;
+
+    --ease-out-expo: ease-out;
+    --ease-out-back: ease-out;
+    --ease-spring:   ease-out;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ACCESSIBILITY — Light Mode Override (optional)
+   ═══════════════════════════════════════════════════════════════════════════
+   Pablo Cockpit is dark-first, but this block provides a minimal light-mode
+   seed. Extend as needed if a light toggle is ever added.                  */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Keep dark theme — Pablo Cockpit is intentionally always dark.
+       This block exists as a placeholder so a future light mode
+       can be implemented by overriding tokens here without
+       touching component styles.
+
+       Example overrides (currently commented out):
+       --ink:   hsl(40, 20%, 97%);
+       --ink-2: hsl(40, 18%, 94%);
+       --ink-3: hsl(40, 15%, 90%);
+       --text:  hsl(140, 12%, 10%);
+       --text-2: hsl(130, 8%, 35%);
+       --text-3: hsl(130, 6%, 55%);
+    */
+  }
+}

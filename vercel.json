@@ -1,0 +1,28 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "lifeos-dashboard-ecru-five.vercel.app"
+        }
+      ],
+      "destination": "https://pablo-cockpit.vercel.app/:path*",
+      "permanent": true
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/notion/library-sync",
+      "schedule": "0 * * * *"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!assets/|icons/|screens/|manifest.webmanifest|sw.js).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

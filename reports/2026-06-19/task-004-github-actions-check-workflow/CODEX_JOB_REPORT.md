@@ -52,6 +52,7 @@ The workflow uses the current stable major releases verified from the official a
 - `gh release view --repo actions/setup-node` - Confirmed stable release v6.4.0.
 - Secret-free Playwright probe using non-secret placeholder environment values - Inconclusive because Playwright reused an existing local Vite server on port 5173; the process was not stopped or modified.
 - `npm run check` - Passed.
+- `gh run watch 27840581672 --exit-status` - Passed; the first pull-request workflow completed successfully in 48 seconds.
 
 ## Local Check Result
 
@@ -63,7 +64,7 @@ The workflow uses the current stable major releases verified from the official a
 
 ## CI Verification Status
 
-**Pending verification.** The workflow file has been created and locally reviewed, but GitHub Actions can only execute it after the branch is pushed and a pull request is opened.
+**Passed for pull requests.** GitHub Actions run [27840581672](https://github.com/chittalaswamysharavan-8991/sharva-website/actions/runs/27840581672) completed successfully in 48 seconds. Checkout, Node setup, `npm ci`, Chromium installation, and `npm run check` all passed without repository secrets.
 
 ## Problems Found / Bugs or Risks Found
 
@@ -74,8 +75,6 @@ The workflow uses the current stable major releases verified from the official a
 
 ## Pending Verification
 
-- GitHub-hosted execution of `npm ci`, Playwright Chromium dependency installation, and `npm run check`: Pending verification.
-- Confirm the pull-request workflow run completes successfully without repository secrets: Pending verification.
 - Confirm the push-to-`main` workflow after a future approved merge: Pending verification.
 - Firefox, WebKit, live authentication, OAuth, connector, and deployment flows: Pending verification.
 
@@ -83,12 +82,13 @@ The workflow uses the current stable major releases verified from the official a
 
 - The repository now has a minimal, read-only readiness workflow for pull requests and pushes to `main`.
 - Local `npm run check` passes.
+- The first GitHub-hosted pull-request run passed without secrets.
 - The auth-gate smoke tests no longer require secrets to represent a valid signed-out state.
 
 ## Final Status
 
-**LOCALLY READY; CI PENDING** - Workflow structure and the complete readiness command passed local verification. The first GitHub-hosted run remains pending verification.
+**READY; PR CHECK GREEN** - Local verification passed, and the first GitHub-hosted pull-request workflow completed successfully without secrets. The push-to-`main` trigger remains pending verification until a future approved merge.
 
 ## Next Recommended Action
 
-- Review the pull request and confirm the first GitHub Actions `Check` run succeeds. Do not merge until the hosted check is green.
+- Review the green draft pull request. Keep it unmerged until the project owner explicitly approves the merge.

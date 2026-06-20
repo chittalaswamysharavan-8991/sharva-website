@@ -22,7 +22,7 @@ export default function PublicDoorway({ navigate, projects }) {
     "Input is visible and sanitized before a workflow runs.",
     "Processing logic is checked with expected success and failure paths.",
     "Outputs, alerts, and logs are captured as proof instead of assumed.",
-    "Private cockpit data stays inside the locked owner workflow."
+    "Private workspace data stays inside the locked owner workflow."
   ];
 
   return (
@@ -33,7 +33,7 @@ export default function PublicDoorway({ navigate, projects }) {
           <h1>Proof-first automations for messy real work.</h1>
           <p>
             Sharavan builds AI automation systems across Make.com, Google Sheets, Gmail, Telegram, and Notion. Public
-            pages show the workflow shape and proof standard, while private Pablo cockpit data stays private.
+            pages show the workflow shape and proof standard, while private workspace data stays off the public site.
           </p>
           <div className="public-actions">
             <button onClick={() => navigate("/work")}>View Work</button>

@@ -13,8 +13,8 @@ export default function WorkScreen({ projects }) {
         <h1>Automation case studies built for operators who want proof, not mystery.</h1>
         <p>
           Sharavan designs public-facing case studies around the workflow problem, the automation stack, the proof
-          trail, and the failure behavior. Sensitive owner data, raw inbox content, financial details, and connector
-          tokens stay out.
+          trail, and the failure behavior. Sensitive owner data, raw inbox content, financial details, and private
+          integration details stay out.
         </p>
       </div>
 

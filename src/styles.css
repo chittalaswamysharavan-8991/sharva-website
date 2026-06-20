@@ -1805,6 +1805,64 @@ select {
   gap: 34px;
 }
 
+.asset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.compact-asset-grid {
+  margin-top: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.asset-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid rgba(142, 234, 138, 0.14);
+  background: rgba(12, 17, 12, 0.76);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+}
+
+.asset-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.asset-card figcaption {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+}
+
+.asset-card figcaption strong {
+  color: var(--bone);
+  font-size: 15px;
+}
+
+.asset-card figcaption p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.asset-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(142, 234, 138, 0.14);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .public-section {
   display: grid;
   gap: 18px;
@@ -1975,6 +2033,46 @@ select {
   max-width: 980px;
 }
 
+.public-proof-media {
+  display: grid;
+  gap: 18px;
+  margin: 6px 0 12px;
+}
+
+.video-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 18px;
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(142, 234, 138, 0.14);
+  background: rgba(12, 17, 12, 0.76);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.32);
+}
+
+.video-card-copy {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.video-card-copy strong {
+  color: var(--bone);
+  font-size: 18px;
+}
+
+.video-card-copy p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
 .contact-screen {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.55fr);
@@ -2123,9 +2221,11 @@ select {
   .build-grid,
   .capture-layout,
   .public-hero,
+  .asset-grid,
   .proof-steps,
   .public-cards,
-  .contact-screen {
+  .contact-screen,
+  .video-card {
     grid-template-columns: 1fr;
   }
 

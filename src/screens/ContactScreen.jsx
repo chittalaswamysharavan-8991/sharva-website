@@ -1,5 +1,6 @@
 import React from "react";
 import { Eye } from "lucide-react";
+import { publicSiteProofAssets } from "../publicPortfolio";
 
 export default function ContactScreen() {
   const offers = [
@@ -8,6 +9,7 @@ export default function ContactScreen() {
     "AI workflow prototypes",
     "Portfolio and demo systems"
   ];
+  const contactProof = publicSiteProofAssets.find((asset) => asset.src === "/screens/contact-desktop.png");
 
   return (
     <section className="public-screen contact-screen">
@@ -32,6 +34,16 @@ export default function ContactScreen() {
           No pricing or private contact details are published here yet. The page stays intentionally simple until the
           approved public destination is ready.
         </p>
+        {contactProof ? (
+          <figure className="asset-card contact-proof-card">
+            <img src={contactProof.src} alt={contactProof.alt} loading="lazy" />
+            <figcaption>
+              <span className="asset-label">{contactProof.label}</span>
+              <strong>{contactProof.title}</strong>
+              <p>{contactProof.caption}</p>
+            </figcaption>
+          </figure>
+        ) : null}
         <strong>Privacy-first portfolio</strong>
         <p>
           Public pages show capability, proof shape, and project categories. They do not reveal personal OS data or

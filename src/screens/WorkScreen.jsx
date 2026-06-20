@@ -49,6 +49,20 @@ export default function WorkScreen() {
                 <small key={item}>{item}</small>
               ))}
             </div>
+            <div className="asset-grid compact-asset-grid">
+              {project.proofAssets
+                ?.filter((asset) => asset.type === "image")
+                .map((asset) => (
+                <figure key={asset.src} className="asset-card">
+                  <img src={asset.src} alt={asset.alt} loading="lazy" />
+                  <figcaption>
+                    <span className="asset-label">{asset.label}</span>
+                    <strong>{asset.title}</strong>
+                    <p>{asset.caption}</p>
+                  </figcaption>
+                </figure>
+                ))}
+            </div>
           </article>
         ))}
       </div>

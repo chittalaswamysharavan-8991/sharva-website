@@ -1,9 +1,15 @@
 import React from "react";
-import { publicOfferAreas, publicPortfolioProjects, publicProofPrinciples } from "../publicPortfolio";
+import {
+  publicOfferAreas,
+  publicPortfolioProjects,
+  publicProofPrinciples,
+  publicSiteProofAssets
+} from "../publicPortfolio";
 
 export default function PublicDoorway({ navigate }) {
   const featuredProjects = publicPortfolioProjects.slice(0, 3);
   const liveProject = publicPortfolioProjects.find((project) => project.proofStatus === "Live verified");
+  const homepageAssets = publicSiteProofAssets;
 
   return (
     <section className="public-screen public-doorway">
@@ -66,6 +72,29 @@ export default function PublicDoorway({ navigate }) {
               <article key={step}>
                 <p>{step}</p>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="public-section">
+          <div className="section-heading">
+            <span className="public-kicker">Visible proof</span>
+            <h2>Real screenshots and labeled proof assets keep the portfolio grounded.</h2>
+            <p>
+              Real website screenshots are shown directly. Demo-only images stay labeled as demo placeholders so they do
+              not get mistaken for live workflow output.
+            </p>
+          </div>
+          <div className="asset-grid">
+            {homepageAssets.map((asset) => (
+              <figure key={asset.src} className="asset-card">
+                <img src={asset.src} alt={asset.alt} loading="lazy" />
+                <figcaption>
+                  <span className="asset-label">{asset.label}</span>
+                  <strong>{asset.title}</strong>
+                  <p>{asset.caption}</p>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </section>

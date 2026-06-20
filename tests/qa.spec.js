@@ -21,19 +21,19 @@ test.describe("Pablo Cockpit QA Suite", () => {
   // Test Public Routes
   test("Public doorway loads and shows correct copy", async ({ page }) => {
     await page.goto(`${BASE_URL}/`);
-    await expect(page.locator("h1")).toContainText("Sharavan builds useful AI automation systems");
-    await expect(page.locator("button:has-text('View Make.com sprint')")).toBeVisible();
-    await expect(page.locator("button:has-text('Open private cockpit')")).toBeVisible();
+    await expect(page.locator("h1")).toContainText("Client-ready automation builds with honest proof labels.");
+    await expect(page.locator("button:has-text('View Work')")).toBeVisible();
+    await expect(page.locator("button:has-text('Make.com Portfolio')")).toBeVisible();
   });
 
   test("Work screen loads successfully", async ({ page }) => {
     await page.goto(`${BASE_URL}/work`);
-    await expect(page.locator("h1")).toContainText("Work");
+    await expect(page.locator("h1")).toContainText("Automation case studies built for reviewers who need the value and the proof status fast.");
   });
 
   test("Make Portfolio screen loads successfully", async ({ page }) => {
     await page.goto(`${BASE_URL}/make-portfolio`);
-    await expect(page.locator("h1")).toContainText("Five workflows, one proof engine.");
+    await expect(page.locator("h1")).toContainText("Make.com workflows framed for clients, leads, and portfolio reviewers.");
   });
 
   test("Contact screen loads successfully", async ({ page }) => {
@@ -75,7 +75,7 @@ test.describe("Pablo Cockpit QA Suite", () => {
     await page.goto(`${BASE_URL}/`);
     
     // Check elements are still visible and layout does not break
-    await expect(page.locator("h1")).toContainText("Sharavan builds useful AI automation systems");
+    await expect(page.locator("h1")).toContainText("Client-ready automation builds with honest proof labels.");
     const header = page.locator(".public-bar");
     await expect(header).toBeVisible();
   });

@@ -137,7 +137,7 @@ function App() {
           )}
           {auth.isUnlocked && route === "capture" && <CaptureScreen store={store} navigate={navigate} />}
           {auth.isUnlocked && route === "pablo" && <PabloScreen />}
-          {auth.isUnlocked && route === "memory" && <MemoryScreen store={store} />}
+          {auth.isUnlocked && route === "memory" && <MemoryScreen store={store} navigate={navigate} />}
           {auth.isUnlocked && route === "body" && <BodyScreen store={store} />}
           {auth.isUnlocked && route === "money" && <MoneyScreen store={store} />}
           {auth.isUnlocked && route === "build-lab" && <BuildLabScreen store={store} />}

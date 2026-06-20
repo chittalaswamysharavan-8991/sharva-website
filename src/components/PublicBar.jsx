@@ -1,5 +1,4 @@
 import React from "react";
-import { Shield } from "lucide-react";
 
 const publicItems = [
   { path: "/", label: "Public" },
@@ -25,9 +24,6 @@ export default function PublicBar({ path, navigate }) {
           </button>
         ))}
       </nav>
-      <button className="return-private" onClick={() => navigate("/home")}>
-        <Shield size={16} /> Private Cockpit
-      </button>
     </header>
   );
 }

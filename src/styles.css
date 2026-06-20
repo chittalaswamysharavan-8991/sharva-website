@@ -2209,6 +2209,10 @@ select {
     max-width: none;
   }
 
+  .today-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
   .top-status,
   .public-bar nav,
   .composer-row,
@@ -2399,6 +2403,111 @@ select {
   align-items: center;
   gap: var(--space-6);
   margin-bottom: var(--space-6);
+}
+
+.today-command-center {
+  align-items: start;
+}
+
+.today-hero-panel .status-strip {
+  margin-top: 0;
+}
+
+.today-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.today-spotlight,
+.today-sync-card {
+  padding: 18px;
+  border: 1px solid rgba(142, 234, 138, 0.14);
+  border-radius: var(--radius);
+  background: rgba(7, 10, 7, 0.46);
+}
+
+.today-spotlight strong,
+.today-sync-header strong {
+  display: block;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 21px;
+  line-height: 1.14;
+}
+
+.today-spotlight p,
+.today-sync-card p,
+.today-panel-copy {
+  margin-top: var(--space-3);
+}
+
+.today-bullet-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.today-bullet-list li {
+  line-height: 1.45;
+}
+
+.today-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.today-action-row .primary-button,
+.today-action-row .secondary-button {
+  width: auto;
+}
+
+.today-focus-stack {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.today-sync-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.today-sync-header svg {
+  color: var(--green);
+}
+
+.today-sync-header span,
+.today-panel-meta {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.today-sync-card small {
+  display: block;
+  margin-top: var(--space-3);
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.today-panel-heading {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.today-capture-panel,
+.today-close-panel {
+  min-height: 330px;
+}
+
+.today-close-panel .secondary-button {
+  margin-top: var(--space-4);
 }
 
 .progress-ring-container {

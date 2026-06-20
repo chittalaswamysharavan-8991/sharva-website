@@ -23,6 +23,8 @@ Keep Pablo Cockpit understandable, launchable, and safe as the product changes.
 - v1 uses mocked snapshots only.
 - `/home` is the first private screen.
 - Public pages are portfolio-focused and do not reveal private cockpit state.
+- Public Portfolio v1.1 is live with proof assets, demo placeholders, and a walkthrough video on the public routes.
+- The contact page remains placeholder-only until an approved public destination is added.
 - Notion/BuildOS writeback is documentation only; live app sync is future work.
 - v2 introduces Supabase Auth and RLS before connector sync.
 - `/sync-settings` is the private connector control room.

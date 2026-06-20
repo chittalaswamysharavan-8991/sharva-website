@@ -12,6 +12,14 @@ Live site: https://pablo-cockpit.vercel.app
 - First private route: `/home`
 - Public doorway: `/`
 
+## Public Portfolio v1.1
+
+- Public Portfolio v1.1 is live at `https://pablo-cockpit.vercel.app`.
+- Public routes now include proof assets on `/`, `/work`, `/make-portfolio`, and `/contact`.
+- Proof assets include real website screenshots, demo placeholders, and a walkthrough video.
+- The contact page stays placeholder-only unless an approved public contact destination is added.
+- Public privacy rules remain active, so the site does not expose private cockpit, connector, or personal data.
+
 ## What Works In v1
 
 - Private cockpit routes for Home, Today, Capture, Pablo, Memory, Body, Money, Build Lab, and Night Close.
@@ -19,6 +27,7 @@ Live site: https://pablo-cockpit.vercel.app
 - Persistent local state for captures, Today tasks, proof checklist, and Night Close.
 - iPhone-ready PWA metadata with manifest, app icons, service worker, safe-area layout, and home-screen title.
 - Mocked connector snapshots only. No live Gmail, Calendar, Drive, Notion, money, health, or family data is synced.
+- The public portfolio now shows honest proof labels for live screenshots, demo placeholders, and walkthrough video without implying private workflow access.
 
 ## v2 Security Foundation
 

@@ -28,6 +28,8 @@ Design, finish, document, and deploy a complete working Pablo Cockpit website fo
 - The legacy `lifeos-dashboard-ecru-five.vercel.app` host now aliases to the live production deployment.
 - Signed-in owners on the canonical host now auto-land in `/home` instead of staying on the public doorway.
 - Local project path: `C:\Website`
+- Public Portfolio v1.1 is live on the public routes with real website screenshots, demo placeholders, and a walkthrough video.
+- The public contact page remains placeholder-only until an approved contact destination is published.
 
 ## Route Inventory
 
@@ -40,7 +42,8 @@ Design, finish, document, and deploy a complete working Pablo Cockpit website fo
 2. Deploy to a stable URL and install on iPhone from Safari.
 3. Add v2 authentication, owner allowlist, privacy classes, sync audit tables, and protected private routes.
 4. Add approved live connector sync later, starting with Notion or Calendar before Gmail.
-5. Promote Make.com proof into public case studies only after screenshots and demo videos exist.
+5. Promote Make.com proof into public case studies with honest proof labels.
+6. Fill the next proof gap with a real Make.com scenario screenshot, a real Google Sheet output screenshot, and a real activity log capture.
 
 ## Privacy Rules
 
@@ -50,6 +53,7 @@ Design, finish, document, and deploy a complete working Pablo Cockpit website fo
 - No email content.
 - No addresses, tokens, phone numbers, or private connector content.
 - Public pages can show capability, proof shape, project category, and demo-ready case studies only.
+- Public pages may show real website screenshots, demo placeholders, and walkthrough media only when they are clearly labeled.
 
 ## QA Checklist
 

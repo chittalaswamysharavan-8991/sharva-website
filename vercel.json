@@ -16,7 +16,7 @@
   "crons": [
     {
       "path": "/api/notion/library-sync",
-      "schedule": "0 * * * *"
+      "schedule": "0 0 * * *"
     }
   ],
   "rewrites": [

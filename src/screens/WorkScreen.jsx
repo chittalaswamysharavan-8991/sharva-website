@@ -1,46 +1,54 @@
 import React from "react";
+import { publicPortfolioProjects } from "../publicPortfolio";
 
-export default function WorkScreen({ projects }) {
-  const portfolioProjects = (projects || []).map((project) => ({
-    ...project,
-    checklistCount: project.proofChecklist?.length || 0
-  }));
+export default function WorkScreen() {
+  const portfolioProjects = publicPortfolioProjects;
 
   return (
     <section className="public-screen work-screen">
       <div className="section-heading">
         <span className="public-kicker">Selected work</span>
-        <h1>Automation case studies built for operators who want proof, not mystery.</h1>
+        <h1>Automation case studies built for reviewers who need the value and the proof status fast.</h1>
         <p>
-          Sharavan designs public-facing case studies around the workflow problem, the automation stack, the proof
-          trail, and the failure behavior. Sensitive owner data, raw inbox content, financial details, and private
-          integration details stay out.
+          Each public case study names the business problem, the tools used, the current proof status, and the
+          placeholder assets still waiting to be captured. Sensitive owner data and internal workspace details stay out.
         </p>
       </div>
 
       <div className="proof-steps compact-proof-steps">
         <article>
-          <p>Tools stay practical: Make.com, Google Sheets, Gmail, Telegram, and Notion.</p>
+          <p>Tools stay practical: Make.com, Google Sheets, Gmail, Telegram, Notion, React, and Vercel.</p>
         </article>
         <article>
           <p>Every case study is expected to show the trigger, logic, output, and alert path.</p>
         </article>
         <article>
-          <p>Edge cases matter because a workflow only counts when it behaves well under pressure.</p>
+          <p>Proof placeholders are shown honestly until screenshots, sheet outputs, or demo video are captured.</p>
         </article>
       </div>
 
       <div className="public-cards work-grid">
         {portfolioProjects.map((project) => (
           <article key={project.id} className="work-card">
-            <span>{project.title}</span>
-            <h3>{project.name}</h3>
-            <strong>
-              {project.stage} / {project.status}
-            </strong>
-            <p>{project.clientValue}</p>
-            <small>Proof target: {project.proof}</small>
-            <small>{project.checklistCount} proof checks tracked in the working build.</small>
+            <span>{project.queueLabel}</span>
+            <div className="card-heading-row">
+              <h3>{project.title}</h3>
+              <strong className={`proof-badge proof-badge-${project.proofTone}`}>{project.proofStatus}</strong>
+            </div>
+            <p>{project.summary}</p>
+            <p className="business-value-line">{project.businessValue}</p>
+            <div className="tool-chip-row">
+              {project.tools.map((tool) => (
+                <span key={tool} className="tool-chip">
+                  {tool}
+                </span>
+              ))}
+            </div>
+            <div className="placeholder-list">
+              {project.proofItems.map((item) => (
+                <small key={item}>{item}</small>
+              ))}
+            </div>
           </article>
         ))}
       </div>

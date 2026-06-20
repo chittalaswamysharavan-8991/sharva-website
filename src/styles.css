@@ -1791,6 +1791,15 @@ select {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.public-proof-card small,
+.public-project-summary small {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .public-stack {
   display: grid;
   gap: 34px;
@@ -1857,6 +1866,100 @@ select {
   margin: 10px 0 12px;
   color: var(--bone);
   font-size: 13px;
+}
+
+.card-heading-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-heading-row h3 {
+  margin: 6px 0 0;
+}
+
+.proof-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.proof-badge-live {
+  background: rgba(142, 234, 138, 0.12);
+  border: 1px solid rgba(142, 234, 138, 0.2);
+  color: var(--green);
+}
+
+.proof-badge-demo {
+  background: rgba(79, 182, 164, 0.12);
+  border: 1px solid rgba(79, 182, 164, 0.2);
+  color: var(--teal);
+}
+
+.proof-badge-placeholder {
+  background: rgba(214, 161, 107, 0.12);
+  border: 1px solid rgba(214, 161, 107, 0.2);
+  color: var(--gold);
+}
+
+.proof-badge-progress {
+  background: rgba(255, 138, 101, 0.12);
+  border: 1px solid rgba(255, 138, 101, 0.2);
+  color: var(--clay);
+}
+
+.tool-chip-row,
+.contact-offer-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.tool-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 11px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(142, 234, 138, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--bone);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.business-value-line {
+  color: var(--bone);
+  margin-top: 14px !important;
+}
+
+.placeholder-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.placeholder-list small {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.placeholder-list small::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(142, 234, 138, 0.5);
+  flex-shrink: 0;
 }
 
 .work-card small {
@@ -2024,6 +2127,11 @@ select {
   .public-cards,
   .contact-screen {
     grid-template-columns: 1fr;
+  }
+
+  .card-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .atlas-card {

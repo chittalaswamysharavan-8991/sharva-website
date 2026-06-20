@@ -135,7 +135,7 @@ function App() {
           {auth.isUnlocked && route === "today" && (
             <TodayScreen store={store} navigate={navigate} planningSnapshotState={planningSnapshotState} />
           )}
-          {auth.isUnlocked && route === "capture" && <CaptureScreen store={store} />}
+          {auth.isUnlocked && route === "capture" && <CaptureScreen store={store} navigate={navigate} />}
           {auth.isUnlocked && route === "pablo" && <PabloScreen />}
           {auth.isUnlocked && route === "memory" && <MemoryScreen store={store} />}
           {auth.isUnlocked && route === "body" && <BodyScreen store={store} />}
